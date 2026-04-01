@@ -1,150 +1,89 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ОктоГеймс - соло разработчик игр</title>
-  <style>
-    /* Общие стили */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ОктоГеймс - соло разработчик игр</title>
+<style>
+  /* Общие стили */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+  }
+  html { scroll-behavior: smooth; }
+  section { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
 
-    /* Шапка */
-    header {
-      background: linear-gradient(90deg, #2c3e50, #34495e);
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-    header img {
-      max-height: 80px;
-      margin-bottom: 10px;
-    }
-    header h1 {
-      margin: 10px 0 5px;
-      color: #e67e22;
-    }
-    header p {
-      margin: 0;
-      font-size: 1rem;
-      color: #ecf0f1;
-    }
+  /* Шапка */
+  header {
+    background: linear-gradient(90deg, #1a2a4f, #2c3e50);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  header img {
+    max-height: 80px;
+    margin-bottom: 10px;
+  }
+  header h1 {
+    margin: 10px 0 5px;
+    color: #f1c40f; /* жёлтый для короны/названия */
+  }
+  header p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ecf0f1;
+  }
 
-    /* Основной контент */
-    main {
-      max-width: 950px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-    section {
-      margin-bottom: 40px;
-      background: white;
-      padding: 25px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-    section:hover {
-      transform: translateY(-2px);
-    }
-    h2 {
-      color: #2980b9;
-      margin-bottom: 20px;
-    }
+  /* Основной контент */
+  main { max-width: 950px; margin: 30px auto; padding: 0 20px; }
+  section { margin-bottom: 40px; background: white; padding: 25px 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  section:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+  h2 { color: #2980b9; margin-bottom: 20px; }
 
-    /* Списки и ссылки */
-    ul {
-      padding-left: 20px;
-    }
-    a {
-      color: #2980b9;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    a:hover {
-      color: #e67e22;
-      text-decoration: underline;
-    }
+  /* Списки и ссылки */
+  ul { padding-left: 20px; }
+  a { color: #2980b9; text-decoration: none; transition: color 0.2s; }
+  a:hover { color: #f1c40f; text-decoration: underline; }
 
-    /* Галерея скриншотов */
-    .screenshots {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
-    .screenshot-container {
-      text-align: center;
-    }
-    .screenshots img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .screenshots img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    }
-    .screenshots p {
-      margin-top: 5px;
-      font-size: 0.9rem;
-      color: #555;
-    }
+  /* Скриншоты */
+  .screenshots { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+  .screenshot-container { text-align: center; }
+  .screenshots img { width: 100%; height: auto; border-radius: 6px; transition: transform 0.3s, box-shadow 0.3s; }
+  .screenshots img:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+  .screenshots p { margin-top: 5px; font-size: 0.9rem; color: #555; }
 
-    /* Контакты с иконками */
-    .contact-list li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .contact-list img {
-      width: 20px;
-      height: 20px;
-      margin-right: 8px;
-    }
+  /* Контакты с Emoji */
+  .contact-list li { display: flex; align-items: center; margin-bottom: 10px; font-size: 1rem; }
+  .contact-list span { margin-right: 8px; font-size: 1.2rem; }
 
-    /* Мобильные корректировки */
-    @media (max-width: 500px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-      header p {
-        font-size: 0.9rem;
-      }
-      section {
-        padding: 20px 15px;
-      }
-    }
-  </style>
+  /* Адаптивность */
+  @media (max-width: 500px) {
+    header h1 { font-size: 1.5rem; }
+    header p { font-size: 0.9rem; }
+    section { padding: 20px 15px; }
+  }
+</style>
 </head>
 <body>
 
 <header>
-  <!-- Логотип -->
-  <img src="logo.png" alt="Логотип ОктоГеймс">
+  <img src="logo.png" alt="Логотип корона">
   <h1>ОктоГеймс (OctoGames)</h1>
   <p>Сайт соло разработчика игр</p>
 </header>
 
 <main>
-  <!-- Обо мне -->
   <section id="about">
     <h2>Обо мне</h2>
     <p>Я занимаюсь разработкой игр на движке Construct 3 и Unity. Создаю графику и геймдизайн. Основной фокус — HTML5 игры для разных платформ, включая Poki и GamePush.</p>
   </section>
 
-  <!-- Проекты -->
   <section id="projects">
     <h2>Проекты</h2>
     <p>В данный момент в разработке игра для Steam:</p>
@@ -153,50 +92,39 @@
     </ul>
   </section>
 
-  <!-- Скриншоты -->
   <section class="screenshots" id="screenshots">
     <h2>Скриншоты игр</h2>
-    <div class="screenshot-container">
-      <img src="screen_01.png" alt="Скриншот игры 01">
-      <p>Сцена 1</p>
-    </div>
-    <div class="screenshot-container">
-      <img src="screen_02.png" alt="Скриншот игры 02">
-      <p>Сцена 2</p>
-    </div>
-    <div class="screenshot-container">
-      <img src="screen_1.png" alt="Скриншот игры 1">
-      <p>Сцена 3</p>
-    </div>
-    <div class="screenshot-container">
-      <img src="screen_2.png" alt="Скриншот игры 2">
-      <p>Сцена 4</p>
-    </div>
-    <div class="screenshot-container">
-      <img src="screen_3.png" alt="Скриншот игры 3">
-      <p>Сцена 5</p>
-    </div>
-    <div class="screenshot-container">
-      <img src="screen_4.png" alt="Скриншот игры 4">
-      <p>Сцена 6</p>
-    </div>
+    <div class="screenshot-container"><img src="screen_01.png" alt="Скриншот игры 01"><p>Сцена 1</p></div>
+    <div class="screenshot-container"><img src="screen_02.png" alt="Скриншот игры 02"><p>Сцена 2</p></div>
+    <div class="screenshot-container"><img src="screen_1.png" alt="Скриншот игры 1"><p>Сцена 3</p></div>
+    <div class="screenshot-container"><img src="screen_2.png" alt="Скриншот игры 2"><p>Сцена 4</p></div>
+    <div class="screenshot-container"><img src="screen_3.png" alt="Скриншот игры 3"><p>Сцена 5</p></div>
+    <div class="screenshot-container"><img src="screen_4.png" alt="Скриншот игры 4"><p>Сцена 6</p></div>
   </section>
 
-  <!-- Контакты -->
   <section id="contacts">
     <h2>Контакты</h2>
     <ul class="contact-list">
-      <li>
-        <img src="mail-icon.png" alt="Почта">
-        <a href="mailto:octogames.dev@gmail.com">octogames.dev@gmail.com</a>
-      </li>
-      <li>
-        <img src="telegram-icon.png" alt="Телеграм">
-        <a href="https://t.me/tresheron" target="_blank">@tresheron</a>
-      </li>
+      <li><span>📧</span><a href="mailto:octogames.dev@gmail.com">octogames.dev@gmail.com</a></li>
+      <li><span>✈️</span><a href="https://t.me/tresheron" target="_blank">@tresheron</a></li>
     </ul>
   </section>
 </main>
+
+<script>
+  // Плавное появление блоков при скролле
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {threshold: 0.2});
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
