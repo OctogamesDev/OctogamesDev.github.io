@@ -32,12 +32,12 @@
   }
   header h1 {
     margin: 10px 0 5px;
-    color: #f1c40f; /* жёлтый для короны/названия */
+    color: #ffffff; /* заголовок белый */
   }
   header p {
     margin: 0;
     font-size: 1rem;
-    color: #ecf0f1;
+    color: #f1c40f; /* подзаголовок жёлтый */
   }
 
   /* Основной контент */
@@ -58,9 +58,9 @@
   .screenshots img:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
   .screenshots p { margin-top: 5px; font-size: 0.9rem; color: #555; }
 
-  /* Контакты с Emoji */
+  /* Контакты с картинками */
   .contact-list li { display: flex; align-items: center; margin-bottom: 10px; font-size: 1rem; }
-  .contact-list span { margin-right: 8px; font-size: 1.2rem; }
+  .contact-list img { width: 20px; height: 20px; margin-right: 8px; }
 
   /* Адаптивность */
   @media (max-width: 500px) {
@@ -105,8 +105,8 @@
   <section id="contacts">
     <h2>Контакты</h2>
     <ul class="contact-list">
-      <li><span>📧</span><a href="mailto:octogames.dev@gmail.com">octogames.dev@gmail.com</a></li>
-      <li><span>✈️</span><a href="https://t.me/tresheron" target="_blank">@tresheron</a></li>
+      <li><img src="mail-icon.png" alt="Почта"><a href="mailto:octogames.dev@gmail.com">octogames.dev@gmail.com</a></li>
+      <li><img src="telegram-icon.png" alt="Телеграм"><a href="https://t.me/tresheron" target="_blank">@tresheron</a></li>
     </ul>
   </section>
 </main>
@@ -122,7 +122,6 @@
       }
     });
   }, {threshold: 0.2});
-
   sections.forEach(section => observer.observe(section));
 </script>
 
