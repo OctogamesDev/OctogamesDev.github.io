@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OctoGames - соло разработчик</title>
+  <title>ОктоГеймс - соло разработчик игр</title>
   <style>
+    /* Общие стили */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -12,75 +13,119 @@
       background: #f5f5f5;
       color: #333;
     }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Шапка */
     header {
       background: #2c3e50;
       color: white;
-      padding: 20px;
+      padding: 25px 20px;
       text-align: center;
     }
     header img {
       max-height: 80px;
       margin-bottom: 10px;
     }
+    header h1 {
+      margin: 10px 0 5px;
+      color: #e67e22;
+    }
+    header p {
+      margin: 0;
+      font-size: 1rem;
+      color: #ecf0f1;
+    }
+
+    /* Основной контент */
     main {
       max-width: 900px;
-      margin: 20px auto;
+      margin: 30px auto;
       padding: 0 20px;
     }
-    h1 {
-      margin-bottom: 10px;
-    }
     section {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       background: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
+    h2 {
+      color: #2980b9;
+      margin-bottom: 15px;
+    }
+
+    /* Списки и ссылки */
     ul {
       padding-left: 20px;
     }
     a {
       color: #2980b9;
       text-decoration: none;
+      transition: color 0.2s;
     }
     a:hover {
+      color: #e67e22;
       text-decoration: underline;
     }
+
+    /* Галерея скриншотов */
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
     .screenshots img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
-      margin: 10px 0;
       border-radius: 6px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .screenshots img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Мобильные корректировки */
+    @media (max-width: 500px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      header p {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <!-- Место для логотипа -->
-  <img src="logo.png" alt="OctoGames Logo">
-  <h1>OctoGames</h1>
-  <p>сайт соло разработчика</p>
+  <!-- Логотип -->
+  <img src="logo.png" alt="Логотип ОктоГеймс">
+  <h1>ОктоГеймс (OctoGames)</h1>
+  <p>Сайт соло разработчика игр</p>
 </header>
 
 <main>
-  <section>
+  <!-- Обо мне -->
+  <section id="about">
     <h2>Обо мне</h2>
-    <p>Занимаюсь разработкой игр на движке Construct 3 и Unity. Разрабатываю графику и геймдизайн. В основном создаю HTML5 игры для разных платформ, включая Poki и GamePush.</p>
+    <p>Я занимаюсь разработкой игр на движке Construct 3 и Unity. Создаю графику и геймдизайн. Основной фокус — HTML5 игры для разных платформ, включая Poki и GamePush.</p>
   </section>
 
-  <section>
+  <!-- Проекты -->
+  <section id="projects">
     <h2>Проекты</h2>
     <p>В данный момент в разработке игра для Steam:</p>
     <ul>
-      <li><a href="https://store.steampowered.com/app/1731190/Weiter/" target="_blank">Weiter на Steam</a></li>
+      <li><a href="https://store.steampowered.com/app/1731190/Weiter/" target="_blank">Игра "Weiter" на Steam</a></li>
     </ul>
   </section>
 
-  <section class="screenshots">
+  <!-- Скриншоты -->
+  <section class="screenshots" id="screenshots">
     <h2>Скриншоты игр</h2>
-    <!-- Добавляй свои скриншоты сюда -->
     <img src="screen_01.png" alt="Скриншот игры 01">
     <img src="screen_02.png" alt="Скриншот игры 02">
     <img src="screen_1.png" alt="Скриншот игры 1">
@@ -93,15 +138,14 @@
     <img src="screen_8.png" alt="Скриншот игры 8">
   </section>
 
-    <section>
+  <!-- Контакты -->
+  <section id="contacts">
     <h2>Контакты</h2>
     <ul>
       <li>Почта: <a href="mailto:octogames.dev@gmail.com">octogames.dev@gmail.com</a></li>
-      <li>Телеграм: <a href="https://t.me/tresheron">@tresheron</a></li>
-      <!-- Телефон можно добавить сюда, если нужно -->
+      <li>Телеграм: <a href="https://t.me/tresheron" target="_blank">@tresheron</a></li>
     </ul>
   </section>
-
 </main>
 
 </body>
